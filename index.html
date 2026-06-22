@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alen Trgovcevic — Bioinformatics Engineer & Builder</title>
+<meta name="description" content="Bioinformatics engineer and full-stack builder. Shipped iOS/Android apps, ML/CV pipelines, on-prem LLM systems, and HPC bioinformatics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#02040a; --bg2:#0B1026; --card:rgba(255,255,255,.03);
+    --line:rgba(255,255,255,.08); --txt:#f4f6fb; --muted:#9ca3af; --accent:#38bdf8;
+    --radius:14px; --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--txt);
+    background-image:radial-gradient(circle at 50% -10%, var(--bg2), transparent 60%);
+    background-attachment:fixed; font-family:"Inter",-apple-system,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;transition:.2s}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+  /* Header */
+  header{display:flex;justify-content:space-between;align-items:center;padding:1.75rem 0}
+  .logo{font-weight:700;letter-spacing:-.02em}
+  nav a{color:var(--muted);margin-left:1.5rem;font-size:.9rem}
+  nav a:hover{color:#fff}
+
+  /* Hero */
+  .hero{padding:4.5rem 0 3rem;max-width:760px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;
+    background:linear-gradient(to bottom right,#fff,#aab2c5);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{color:var(--muted);font-size:1.2rem;font-weight:300;margin:1.4rem 0 2rem;max-width:640px}
+  .cta a{display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.3rem;border-radius:10px;font-weight:600;font-size:.95rem;margin-right:.75rem}
+  .cta .primary{background:#fff;color:#000}
+  .cta .primary:hover{background:#dbe2ee}
+  .cta .ghost{border:1px solid var(--line);color:#fff}
+  .cta .ghost:hover{border-color:#fff}
+
+  /* Stats */
+  .stats{display:flex;flex-wrap:wrap;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
+  .stat .n{font-size:1.8rem;font-weight:700}
+  .stat .l{color:var(--muted);font-size:.85rem}
+
+  /* Sections */
+  section{padding:3.5rem 0}
+  h2{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+  .sub{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.1rem}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;
+    display:flex;flex-direction:column;transition:.25s;position:relative;overflow:hidden}
+  .card:hover{border-color:rgba(56,189,248,.4);transform:translateY(-3px);background:rgba(255,255,255,.05)}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+  .card h3{font-size:1.15rem;font-weight:600}
+  .badge{font-size:.7rem;font-weight:600;padding:.15rem .55rem;border-radius:100px;white-space:nowrap;border:1px solid var(--line);color:var(--muted)}
+  .badge.live{color:#4ade80;border-color:rgba(74,222,128,.3)}
+  .badge.shipped{color:#38bdf8;border-color:rgba(56,189,248,.3)}
+  .badge.prep{color:#fbbf24;border-color:rgba(251,191,36,.3)}
+  .card p{color:var(--muted);font-size:.92rem;margin:.6rem 0 1rem}
+  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;margin-bottom:1rem}
+  .tag{font-size:.72rem;color:#c7d0e0;background:rgba(255,255,255,.06);padding:.2rem .55rem;border-radius:6px}
+  .card .link{font-size:.85rem;color:var(--accent);font-weight:600}
+  .card .link:hover{text-decoration:underline}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0;color:var(--muted);font-size:.85rem;text-align:center}
+  footer a{color:var(--accent)}
+  @media(max-width:560px){.stats{gap:1.5rem}nav{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="logo">Alen Trgovcevic</span>
+    <nav>
+      <a href="#apps">Apps</a>
+      <a href="#ai">AI</a>
+      <a href="#science">Science</a>
+      <a href="https://github.com/alentrgovcevic" target="_blank">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>I build products that ship — across every layer of the stack.</h1>
+    <p>Bioinformatics engineer and full-stack builder. Native iOS/Android apps, production backends, ML/CV pipelines, on-prem LLM systems, and HPC bioinformatics — designed, built, and operated end-to-end.</p>
+    <div class="cta">
+      <a class="primary" href="https://github.com/alentrgovcevic" target="_blank">View GitHub</a>
+      <a class="ghost" href="mailto:support@atproductions.dk">Get in touch</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">5</div><div class="l">apps shipped / launching</div></div>
+      <div class="stat"><div class="n">2,000+</div><div class="l">users on TankBilligt</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">domains, one builder</div></div>
+    </div>
+  </section>
+
+  <section id="apps">
+    <h2>📱 Products & mobile apps</h2>
+    <p class="sub">Native iOS/Android, real users, full monetization stacks.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="top"><h3>TankBilligt</h3><span class="badge live">Production</span></div>
+        <p>Denmark's cheapest-fuel app — 2,000+ users. iOS + Android + a Node/TS backend with server-side IAP validation and cron price-scraping.</p>
+        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Compose</span><span class="tag">Express/TS</span><span class="tag">PostgreSQL</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/TankBilligt-overview" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Bliv Klar</h3><span class="badge shipped">App Store</span></div>
+        <p>Danish citizenship exam prep with an AI content pipeline (pdfplumber → Gemini → validated question bank).</p>
+        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">SwiftData</span><span class="tag">Gemini</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/BlivKlar" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Lynkort</h3><span class="badge shipped">App Store</span></div>
+        <p>Danish flashcards with a Leitner spaced-repetition engine, lock-screen widget, and zero external dependencies.</p>
+        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">SwiftData</span><span class="tag">CloudKit</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/Lynkort" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>LabCompanion</h3><span class="badge prep">Launch prep</span></div>
+        <p>Lab calculators + protocol timers with Lock Screen Live Activities and iCloud sync, for bench scientists.</p>
+        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">ActivityKit</span><span class="tag">CloudKit</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/LabCompanion-overview" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>KøreKlar</h3><span class="badge">Concept</span></div>
+        <p>Driving-theory prep where Gemini explains every wrong answer in plain Danish, with SM-2 spaced repetition.</p>
+        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Gemini</span><span class="tag">StoreKit 2</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/KoreKlar-overview" target="_blank">View overview →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="ai">
+    <h2>🤖 AI & automation</h2>
+    <p class="sub">On-prem LLMs, local-first pipelines, autonomous agents.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="top"><h3>labRAG</h3><span class="badge live">Production</span></div>
+        <p>A fully on-prem RAG lab assistant over WhatsApp — local GPU inference, no cloud LLM ever sees the data.</p>
+        <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">Chroma</span><span class="tag">Ollama</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/labRAG-overview" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Photo Pipeline</h3><span class="badge live">Production</span></div>
+        <p>A photographer's cull-to-stock automation: RAW culling, a three-axis local-AI scorer, and multi-agency submission.</p>
+        <div class="tags"><span class="tag">OpenCV</span><span class="tag">Ollama</span><span class="tag">NIMA</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/PhotoPipeline" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Marketing Agent</h3><span class="badge">Concept</span></div>
+        <p>Autonomous social-content pipeline designed to give retired hardware new life — data → generation → media → posting.</p>
+        <div class="tags"><span class="tag">Docker</span><span class="tag">Gemini</span><span class="tag">Playwright</span><span class="tag">moviepy</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/MarketingAgent" target="_blank">View overview →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="science">
+    <h2>🧬 Bioinformatics & scientific computing</h2>
+    <p class="sub">HPC pipelines and rigorous, reproducible analysis.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="top"><h3>PhenoVision</h3><span class="badge live">Production</span></div>
+        <p>A CV pipeline turning messy lab photos into publication-grade plant phenotype data with YOLOv8/11 + geometry.</p>
+        <div class="tags"><span class="tag">YOLOv8/11</span><span class="tag">OpenCV</span><span class="tag">skan</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/PhenoVision-overview" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>WA Pipelines</h3><span class="badge live">Production</span></div>
+        <p>HPC shotgun metagenomics of the wheat rhizoplane microbiome — gwf/SLURM, dual host-reference removal, Kraken2 + HUMAnN3.</p>
+        <div class="tags"><span class="tag">gwf</span><span class="tag">SLURM</span><span class="tag">Kraken2</span><span class="tag">R</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/WA_pipelines-overview" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Barley Root RNA-seq</h3><span class="badge live">Production</span></div>
+        <p>RNA-seq differential expression testing whether transgenes alter the barley root response to AMF — STAR + DESeq2 interaction model.</p>
+        <div class="tags"><span class="tag">STAR</span><span class="tag">DESeq2</span><span class="tag">R</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/barley_root_rnaseq" target="_blank">View overview →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="more">
+    <h2>🗄️ Systems · 🎮 Game dev · 🛡️ Security</h2>
+    <p class="sub">Breadth beyond the day job.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="top"><h3>BREEDOME LIMS</h3><span class="badge">In build</span></div>
+        <p>A laboratory information system for a 4-node, 5-year genome-editing facility — single-file RBAC, OAuth/OIDC, instrument integration.</p>
+        <div class="tags"><span class="tag">FileMaker 2025</span><span class="tag">RBAC</span><span class="tag">OAuth/OIDC</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/BREEDOME_LIMS" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Tracewire</h3><span class="badge">Prototype</span></div>
+        <p>A territory-carving auto-battler with an engine-independent, xUnit-tested pure-C# simulation core consumed by Unity.</p>
+        <div class="tags"><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">xUnit</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/Tracewire-overview" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>Cybersecurity Toolkit</h3><span class="badge">Toolkit</span></div>
+        <p>Password entropy analyzer with privacy-preserving HIBP k-anonymity breach checks, plus a class-based port scanner.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SHA-256</span><span class="tag">HIBP</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/CybersecurityToolkit" target="_blank">View overview →</a>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    Built across native mobile · production backends · ML/CV · on-prem LLM/RAG · HPC bioinformatics · systems · game dev · security.<br>
+    <a href="https://github.com/alentrgovcevic">github.com/alentrgovcevic</a> · <a href="mailto:support@atproductions.dk">support@atproductions.dk</a> · © 2026 Alen Trgovcevic
+  </footer>
+
+</div>
+</body>
+</html>
