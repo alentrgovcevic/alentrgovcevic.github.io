@@ -63,8 +63,12 @@
   .card p{color:var(--muted);font-size:.92rem;margin:.6rem 0 1rem}
   .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;margin-bottom:1rem}
   .tag{font-size:.72rem;color:#c7d0e0;background:rgba(255,255,255,.06);padding:.2rem .55rem;border-radius:6px}
+  .links{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
   .card .link{font-size:.85rem;color:var(--accent);font-weight:600}
   .card .link:hover{text-decoration:underline}
+  .links .sep{color:var(--line);font-size:.85rem}
+  .card .store{font-size:.85rem;color:var(--muted);font-weight:600}
+  .card .store:hover{color:#fff}
 
   footer{border-top:1px solid var(--line);padding:2.5rem 0;color:var(--muted);font-size:.85rem;text-align:center}
   footer a{color:var(--accent)}
@@ -106,25 +110,41 @@
         <div class="top"><h3>TankBilligt</h3><span class="badge live">Production</span></div>
         <p>Denmark's cheapest-fuel app — 2,000+ users. iOS + Android + a Node/TS backend with server-side IAP validation and cron price-scraping.</p>
         <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Compose</span><span class="tag">Express/TS</span><span class="tag">PostgreSQL</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/TankBilligt-overview" target="_blank">View overview →</a>
+        <div class="links">
+          <a class="link" href="https://github.com/alentrgovcevic/TankBilligt-overview" target="_blank">View overview →</a>
+          <span class="sep">·</span>
+          <a class="store" href="https://apps.apple.com/dk/app/tankbilligt-benzinpriser/id6757086573" target="_blank">App Store ↗</a>
+        </div>
       </article>
       <article class="card">
         <div class="top"><h3>Bliv Klar</h3><span class="badge shipped">App Store</span></div>
         <p>Danish citizenship exam prep with an AI content pipeline (pdfplumber → Gemini → validated question bank).</p>
         <div class="tags"><span class="tag">SwiftUI</span><span class="tag">SwiftData</span><span class="tag">Gemini</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/BlivKlar" target="_blank">View overview →</a>
+        <div class="links">
+          <a class="link" href="https://github.com/alentrgovcevic/BlivKlar" target="_blank">View overview →</a>
+          <span class="sep">·</span>
+          <a class="store" href="https://apps.apple.com/dk/app/bliv-klar-indf%C3%B8dsretspr%C3%B8ven/id6758513536" target="_blank">App Store ↗</a>
+        </div>
       </article>
       <article class="card">
         <div class="top"><h3>Lynkort</h3><span class="badge shipped">App Store</span></div>
         <p>Danish flashcards with a Leitner spaced-repetition engine, lock-screen widget, and zero external dependencies.</p>
         <div class="tags"><span class="tag">SwiftUI</span><span class="tag">SwiftData</span><span class="tag">CloudKit</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/Lynkort" target="_blank">View overview →</a>
+        <div class="links">
+          <a class="link" href="https://github.com/alentrgovcevic/Lynkort" target="_blank">View overview →</a>
+          <span class="sep">·</span>
+          <a class="store" href="https://apps.apple.com/dk/app/lynkort-flashcards/id6760855261" target="_blank">App Store ↗</a>
+        </div>
       </article>
       <article class="card">
-        <div class="top"><h3>LabCompanion</h3><span class="badge prep">Launch prep</span></div>
+        <div class="top"><h3>LabCompanion</h3><span class="badge shipped">App Store</span></div>
         <p>Lab calculators + protocol timers with Lock Screen Live Activities and iCloud sync, for bench scientists.</p>
         <div class="tags"><span class="tag">SwiftUI</span><span class="tag">ActivityKit</span><span class="tag">CloudKit</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/LabCompanion-overview" target="_blank">View overview →</a>
+        <div class="links">
+          <a class="link" href="https://github.com/alentrgovcevic/LabCompanion-overview" target="_blank">View overview →</a>
+          <span class="sep">·</span>
+          <a class="store" href="https://apps.apple.com/dk/app/labcompanion-lab-calculator/id6770509131" target="_blank">App Store ↗</a>
+        </div>
       </article>
       <article class="card">
         <div class="top"><h3>KøreKlar</h3><span class="badge">Concept</span></div>
