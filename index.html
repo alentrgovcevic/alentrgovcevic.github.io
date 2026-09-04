@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alen Trgovcevic — Bioinformatics Engineer & Builder</title>
-<meta name="description" content="Bioinformatics engineer and full-stack builder. Shipped iOS/Android apps, ML/CV pipelines, on-prem LLM systems, and HPC bioinformatics.">
+<meta name="description" content="Alen Trgovcevic — bioinformatics engineer and full-stack builder at Aarhus University. Four apps in production on iOS and Android, ML/CV pipelines, offline LLM systems and HPC bioinformatics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -70,6 +70,13 @@
   .card .store{font-size:.85rem;color:var(--muted);font-weight:600}
   .card .store:hover{color:#fff}
 
+  .about p{color:var(--muted);font-size:1rem;max-width:760px;margin-bottom:1rem}
+  .about .pull{color:var(--txt);font-size:1.15rem;font-weight:300;line-height:1.5;
+    border-left:2px solid var(--accent);padding-left:1.1rem;margin:1.5rem 0}
+  .pubs p{color:var(--txt);font-size:.95rem;margin-bottom:1rem}
+  .pubs .muted{color:var(--muted)}
+  .pubs a{color:var(--accent);font-weight:600;font-size:.9rem}
+  .pubs a:hover{text-decoration:underline}
   footer{border-top:1px solid var(--line);padding:2.5rem 0;color:var(--muted);font-size:.85rem;text-align:center}
   footer a{color:var(--accent)}
   @media(max-width:560px){.stats{gap:1.5rem}nav{display:none}}
@@ -84,21 +91,43 @@
       <a href="#apps">Apps</a>
       <a href="#ai">AI</a>
       <a href="#science">Science</a>
+      <a href="#about">About</a>
+      <a href="https://www.linkedin.com/in/alen-trgovcevic/" target="_blank">LinkedIn ↗</a>
       <a href="https://github.com/alentrgovcevic" target="_blank">GitHub ↗</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>I build products that ship — across every layer of the stack.</h1>
-    <p>Bioinformatics engineer and full-stack builder. Native iOS/Android apps, production backends, ML/CV pipelines, on-prem LLM systems, and HPC bioinformatics — designed, built, and operated end-to-end.</p>
+    <h1>I run a lab&rsquo;s operations and build the software it runs on.</h1>
+    <p>Bioinformatics engineer and full-stack builder at Aarhus University. Native iOS and Android apps, production backends, ML/CV pipelines, offline LLM systems and HPC bioinformatics &mdash; designed, built and operated end to end.</p>
     <div class="cta">
       <a class="primary" href="https://github.com/alentrgovcevic" target="_blank">View GitHub</a>
-      <a class="ghost" href="mailto:support@atproductions.dk">Get in touch</a>
+      <a class="ghost" href="https://www.linkedin.com/in/alen-trgovcevic/" target="_blank">LinkedIn</a>
+      <a class="ghost" href="mailto:alen.trgovcevic@gmail.com">Get in touch</a>
     </div>
     <div class="stats">
-      <div class="stat"><div class="n">5</div><div class="l">apps shipped / launching</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">apps in production, iOS + Android</div></div>
       <div class="stat"><div class="n">2,000+</div><div class="l">users on TankBilligt</div></div>
-      <div class="stat"><div class="n">8</div><div class="l">domains, one builder</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">payment rails live</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">peer-reviewed publications</div></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>👋 About</h2>
+    <p class="sub">How a lab manager ended up writing production software.</p>
+    <div class="about">
+      <p>I came to software from the bench. I set up Oxford Nanopore sequencing in-house, prepared and multiplexed
+      libraries for Illumina and Nanopore, and built the 16S, RNA-seq and metagenomics workflows that processed what
+      came off them and somewhere in there I became the person who also built the tools. Today I run daily
+      operations for a molecular biology section at Aarhus University, coordinate an international research
+      consortium, and keep building.</p>
+      <p class="pull">The hard part of writing software for a laboratory is rarely the code. It is that the code has
+      to be right about something biological it does not understand.</p>
+      <p>That is the thread through everything below. Most developers can build the system; fewer can read the data
+      running through it. I have spent years on both sides of that line, which is why the lab&rsquo;s ordering
+      and sample database, an offline assistant my colleagues use daily, and a phenotyping pipeline that cleared
+      months of manual measurement all look like the same job to me.</p>
     </div>
   </section>
 
@@ -114,22 +143,26 @@
           <a class="link" href="https://github.com/alentrgovcevic/TankBilligt-overview" target="_blank">View overview →</a>
           <span class="sep">·</span>
           <a class="store" href="https://apps.apple.com/dk/app/tankbilligt-benzinpriser/id6757086573" target="_blank">App Store ↗</a>
+          <span class="sep">·</span>
+          <a class="store" href="https://play.google.com/store/apps/details?id=dk.tankbilligt.android" target="_blank">Google Play ↗</a>
         </div>
       </article>
       <article class="card">
-        <div class="top"><h3>Bliv Klar</h3><span class="badge shipped">App Store</span></div>
-        <p>Danish citizenship exam prep with an AI content pipeline (pdfplumber → Gemini → validated question bank).</p>
-        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">SwiftData</span><span class="tag">Gemini</span></div>
+        <div class="top"><h3>Bliv Klar</h3><span class="badge live">Production</span></div>
+        <p>Danish citizenship exam prep on iOS, Android <em>and</em> web &mdash; the web flow takes real money through Stripe, with the receipt, right-of-withdrawal and terms pages Danish consumer law requires.</p>
+        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Compose</span><span class="tag">Play Billing</span><span class="tag">Stripe/PHP</span></div>
         <div class="links">
           <a class="link" href="https://github.com/alentrgovcevic/BlivKlar" target="_blank">View overview →</a>
           <span class="sep">·</span>
           <a class="store" href="https://apps.apple.com/dk/app/bliv-klar-indf%C3%B8dsretspr%C3%B8ven/id6758513536" target="_blank">App Store ↗</a>
+          <span class="sep">·</span>
+          <a class="store" href="https://play.google.com/store/apps/details?id=dk.atproductions.blivklar" target="_blank">Google Play ↗</a>
         </div>
       </article>
       <article class="card">
         <div class="top"><h3>Lynkort</h3><span class="badge shipped">App Store</span></div>
         <p>Danish flashcards with a Leitner spaced-repetition engine, lock-screen widget, and zero external dependencies.</p>
-        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">SwiftData</span><span class="tag">CloudKit</span></div>
+        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Compose</span><span class="tag">SwiftData</span><span class="tag">CloudKit</span></div>
         <div class="links">
           <a class="link" href="https://github.com/alentrgovcevic/Lynkort" target="_blank">View overview →</a>
           <span class="sep">·</span>
@@ -138,19 +171,13 @@
       </article>
       <article class="card">
         <div class="top"><h3>LabCompanion</h3><span class="badge shipped">App Store</span></div>
-        <p>Lab calculators + protocol timers with Lock Screen Live Activities and iCloud sync, for bench scientists.</p>
+        <p>Lab calculators and protocol timers with Lock Screen Live Activities and iCloud sync, for bench scientists. Live on iOS; Android in development.</p>
         <div class="tags"><span class="tag">SwiftUI</span><span class="tag">ActivityKit</span><span class="tag">CloudKit</span></div>
         <div class="links">
           <a class="link" href="https://github.com/alentrgovcevic/LabCompanion-overview" target="_blank">View overview →</a>
           <span class="sep">·</span>
           <a class="store" href="https://apps.apple.com/dk/app/labcompanion-lab-calculator/id6770509131" target="_blank">App Store ↗</a>
         </div>
-      </article>
-      <article class="card">
-        <div class="top"><h3>KøreKlar</h3><span class="badge">Concept</span></div>
-        <p>Driving-theory prep where Gemini explains every wrong answer in plain Danish, with SM-2 spaced repetition.</p>
-        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Gemini</span><span class="tag">StoreKit 2</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/KoreKlar-overview" target="_blank">View overview →</a>
       </article>
     </div>
   </section>
@@ -161,8 +188,8 @@
     <div class="grid">
       <article class="card">
         <div class="top"><h3>labRAG</h3><span class="badge live">Production</span></div>
-        <p>A fully on-prem RAG lab assistant over WhatsApp — local GPU inference, no cloud LLM ever sees the data.</p>
-        <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">Chroma</span><span class="tag">Ollama</span></div>
+        <p>A fully offline RAG assistant over lab protocols and safety documents &mdash; no cloud LLM ever sees the data. It cites a source on every answer, and says a protocol is not in the indexed set rather than inventing one.</p>
+        <div class="tags"><span class="tag">Ollama</span><span class="tag">Python</span><span class="tag">local embeddings</span></div>
         <a class="link" href="https://github.com/alentrgovcevic/labRAG-overview" target="_blank">View overview →</a>
       </article>
       <article class="card">
@@ -210,8 +237,8 @@
     <p class="sub">Breadth beyond the day job.</p>
     <div class="grid">
       <article class="card">
-        <div class="top"><h3>BREEDOME LIMS</h3><span class="badge">In build</span></div>
-        <p>A laboratory information system for a 4-node, 5-year genome-editing facility — single-file RBAC, OAuth/OIDC, instrument integration.</p>
+        <div class="top"><h3>BREEDOME LIMS</h3><span class="badge prep">In build</span></div>
+        <p>A laboratory information system for a 4-node genome-editing facility. Ordering, oligos and personnel/permissions are built; consolidating four standalone databases into one is roughly half done.</p>
         <div class="tags"><span class="tag">FileMaker 2025</span><span class="tag">RBAC</span><span class="tag">OAuth/OIDC</span></div>
         <a class="link" href="https://github.com/alentrgovcevic/BREEDOME_LIMS" target="_blank">View overview →</a>
       </article>
@@ -230,9 +257,27 @@
     </div>
   </section>
 
+  <section id="pubs">
+    <h2>📄 Publications</h2>
+    <p class="sub">Peer-reviewed, from the research side of the same work.</p>
+    <div class="pubs">
+      <p><strong>Signatures of Antagonistic Pleiotropy in a Bacterial Flagellin Epitope</strong><br>
+      <span class="muted">Cell Host &amp; Microbe, 2021 ·</span>
+      <a class="link" href="https://doi.org/10.1016/j.chom.2021.02.006" target="_blank">10.1016/j.chom.2021.02.006 →</a></p>
+      <p><strong>A Conserved Juxtamembrane Motif in Plant NFR5 Receptors</strong><br>
+      <span class="muted">PNAS, 2021 ·</span>
+      <a class="link" href="https://doi.org/10.1073/pnas.2101526118" target="_blank">10.1073/pnas.2101526118 →</a></p>
+      <p style="margin-top:1.25rem"><a class="link" href="https://orcid.org/0000-0001-7709-6803" target="_blank">ORCID 0000-0001-7709-6803 →</a></p>
+    </div>
+  </section>
+
   <footer>
-    Built across native mobile · production backends · ML/CV · on-prem LLM/RAG · HPC bioinformatics · systems · game dev · security.<br>
-    <a href="https://github.com/alentrgovcevic">github.com/alentrgovcevic</a> · <a href="mailto:support@atproductions.dk">support@atproductions.dk</a> · © 2026 Alen Trgovcevic
+    Native mobile · production backends · payments and consumer-law compliance · ML/CV · offline LLM/RAG · HPC bioinformatics · laboratory data architecture.<br>
+    <a href="https://www.linkedin.com/in/alen-trgovcevic/">LinkedIn</a> ·
+    <a href="https://github.com/alentrgovcevic">github.com/alentrgovcevic</a> ·
+    <a href="https://orcid.org/0000-0001-7709-6803">ORCID 0000-0001-7709-6803</a> ·
+    <a href="mailto:alen.trgovcevic@gmail.com">alen.trgovcevic@gmail.com</a><br>
+    <span style="opacity:.6">AT Productions (CVR 46159640) · © 2026 Alen Trgovcevic</span>
   </footer>
 
 </div>
