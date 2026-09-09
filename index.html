@@ -184,7 +184,7 @@
 
   <section id="ai">
     <h2>🤖 AI & automation</h2>
-    <p class="sub">On-prem LLMs, local-first pipelines, autonomous agents.</p>
+    <p class="sub">On-prem LLMs, local-first pipelines, autonomous agents &mdash; and the tooling around them.</p>
     <div class="grid">
       <article class="card">
         <div class="top"><h3>labRAG</h3><span class="badge live">Production</span></div>
@@ -201,6 +201,12 @@
         <p>A photographer's cull-to-stock automation: RAW culling, a three-axis local-AI scorer, and multi-agency submission.</p>
         <div class="tags"><span class="tag">OpenCV</span><span class="tag">Ollama</span><span class="tag">NIMA</span></div>
         <a class="link" href="https://github.com/alentrgovcevic/PhotoPipeline" target="_blank">View overview →</a>
+      </article>
+      <article class="card">
+        <div class="top"><h3>cmdlog</h3><span class="badge live">Open source</span></div>
+        <p>Tooling for the coding agents themselves. It reads Claude Code&rsquo;s own session transcripts and builds one local page of every command the agent ran &mdash; grouped by day, mapped to the repository it ran in, with the output it printed and a search that covers that output. No hook, no daemon, no dependencies, and it never writes to the agent&rsquo;s own files.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQLite FTS5</span><span class="tag">stdlib-only</span><span class="tag">MIT</span></div>
+        <a class="link" href="https://github.com/alentrgovcevic/claude-code-cmdlog" target="_blank">Read the code ↗</a>
       </article>
       <article class="card">
         <div class="top"><h3>Marketing Agent</h3><span class="badge">Concept</span></div>
