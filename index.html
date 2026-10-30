@@ -1,305 +1,617 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alen Trgovcevic — Bioinformatics Engineer & Builder</title>
-<meta name="description" content="Alen Trgovcevic — bioinformatics engineer and full-stack builder at Aarhus University. Four apps in production on iOS and Android, ML/CV pipelines, offline LLM systems and HPC bioinformatics.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Alen Trgovcevic — Bioinformatics Engineer &amp; Builder</title>
+<meta name="description" content="Alen Trgovcevic — bioinformatics engineer and full-stack builder at Aarhus University. Four apps in production on iOS and Android, ML/CV pipelines, offline LLM systems, lab infrastructure and HPC bioinformatics.">
+<meta name="theme-color" content="#f4f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d0d0d'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='monospace' font-size='30' font-weight='700' fill='%23f4f2ec'%3EAT%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
 <style>
-  :root{
-    --bg:#02040a; --bg2:#0B1026; --card:rgba(255,255,255,.03);
-    --line:rgba(255,255,255,.08); --txt:#f4f6fb; --muted:#9ca3af; --accent:#38bdf8;
-    --radius:14px; --max:1080px;
+:root {
+  /* palette from option C (broadsheet): newsprint, ink, one red (owner, 2026-10-30) */
+  --bg: #f4f2ec;
+  --panel: #ebe8e0;
+  --ink: #0d0d0d;
+  --muted: #55514a;
+  --rule: #b9b5aa;
+  --rule-strong: #0d0d0d;
+  --accent: #c8102e;
+  --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 56px);
+  --maxw: 1320px;
+  --idx: 4.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; transition: color .15s ease, text-decoration-color .15s ease; }
+a:hover { text-decoration-color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 0; }
+
+.skip {
+  position: absolute; left: var(--gutter); top: -100px;
+  background: var(--ink); color: var(--bg);
+  font-family: var(--mono); font-size: .8125rem; text-transform: uppercase; letter-spacing: .06em;
+  padding: .75rem 1rem; z-index: 10;
+}
+.skip:focus { top: 0; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+
+.mono, .label {
+  font-family: var(--mono);
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Header / directory bar ---------- */
+.site-head { border-bottom: 1px solid var(--rule-strong); }
+.site-head .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: .5rem 2rem; padding-top: 1rem; padding-bottom: 1rem;
+}
+.logo {
+  font-family: var(--mono); font-weight: 500; font-size: .875rem; letter-spacing: .08em;
+  text-transform: uppercase; text-decoration: none;
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+.logo span { color: var(--muted); margin-right: .6em; }
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.site-nav a {
+  font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; display: inline-flex; align-items: center; min-height: 44px;
+  border-bottom: 1px solid transparent;
+}
+.site-nav a:hover { border-bottom-color: var(--accent); }
+
+/* ---------- Hero ---------- */
+.hero { border-bottom: 1px solid var(--rule-strong); }
+.hero .wrap {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+}
+.hero-main { padding: clamp(3rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem); }
+.hero-main .label { margin: 0 0 1.5rem; }
+h1 {
+  font-size: clamp(2.25rem, 1.2rem + 4.6vw, 5rem);
+  line-height: 1.02; letter-spacing: -0.03em; font-weight: 600;
+  margin: 0 0 1.75rem; max-width: 16ch;
+}
+.lead { max-width: 60ch; margin: 0 0 2.5rem; font-size: clamp(1.0625rem, 1rem + .35vw, 1.25rem); line-height: 1.55; }
+
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.btn {
+  display: inline-flex; align-items: center; min-height: 48px; padding: .75rem 1.25rem;
+  font-family: var(--mono); font-size: .8125rem; letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border: 1px solid var(--ink); background: transparent; color: var(--ink);
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn:hover { border-color: var(--accent); }
+.btn--primary { background: var(--ink); color: var(--bg); }
+.btn--primary:hover { background: var(--bg); color: var(--ink); }
+
+.stats {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--rule-strong);
+}
+.stats li {
+  padding: 1.25rem 1rem 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.stats li:nth-child(odd) { border-right: 1px solid var(--rule); }
+.stats li:nth-child(even) { padding-left: 1rem; }
+.stats strong {
+  display: block; font-size: clamp(2rem, 1.4rem + 2.4vw, 3.25rem); font-weight: 600;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: .6rem;
+}
+
+/* ---------- Sections ---------- */
+.sec { border-bottom: 1px solid var(--rule-strong); }
+.sec-head {
+  display: grid; grid-template-columns: 1fr; gap: .5rem 2rem;
+  padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+}
+.sec-head .label { margin: 0; }
+h2 {
+  font-size: clamp(1.625rem, 1.2rem + 1.8vw, 2.5rem); line-height: 1.1; letter-spacing: -0.02em;
+  font-weight: 600; margin: 0;
+}
+.sec-sub { margin: 0; color: var(--muted); max-width: 52ch; font-size: 1.0625rem; }
+
+/* ---------- Ledger ---------- */
+.ledger { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule-strong); }
+.entry {
+  display: grid;
+  grid-template-columns: var(--idx) minmax(0, 1fr);
+  gap: .75rem 1rem;
+  padding: 1.75rem 0 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.entry:last-child { border-bottom: 0; }
+.entry-idx { font-family: var(--mono); font-size: .875rem; color: var(--muted); padding-top: .25rem; }
+.entry-body { display: grid; gap: .9rem; min-width: 0; }
+h3 { font-size: clamp(1.25rem, 1.1rem + .6vw, 1.5rem); font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; margin: 0; }
+.entry-title { display: flex; flex-direction: column; gap: .35rem; }
+.entry p { margin: 0; max-width: 68ch; }
+.tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 0; }
+.tags li { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.tags li + li::before { content: "/"; margin: 0 .6em; color: var(--rule); }
+.links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+.links a {
+  font-family: var(--mono); font-size: .8125rem; letter-spacing: .02em;
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+
+/* ---------- About ---------- */
+.about-body { display: grid; gap: 2rem; padding: 0 0 clamp(2.5rem, 6vw, 5rem); border-top: 1px solid var(--rule-strong); padding-top: 2rem; }
+.about-body p { margin: 0; max-width: 66ch; }
+blockquote {
+  margin: 0; padding: 1.5rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem); line-height: 1.3; letter-spacing: -0.01em; font-weight: 500;
+  max-width: 34ch;
+}
+
+/* ---------- Publications ---------- */
+.pub-meta { font-family: var(--mono); font-size: .8125rem; color: var(--muted); }
+.orcid { padding: 1.5rem 0 clamp(2.5rem, 6vw, 5rem); border-top: 1px solid var(--rule); margin: 0; }
+.orcid a { font-family: var(--mono); font-size: .8125rem; display: inline-flex; align-items: center; min-height: 44px; }
+
+/* ---------- Footer ---------- */
+.site-foot .wrap { padding-top: 2.5rem; padding-bottom: 3rem; display: grid; gap: 1.5rem; }
+.site-foot p { margin: 0; max-width: 72ch; }
+.foot-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+.foot-links a { font-family: var(--mono); font-size: .8125rem; display: inline-flex; align-items: center; min-height: 44px; }
+
+/* ---------- Wide layout: a floor directory ---------- */
+@media (min-width: 760px) {
+  :root { --idx: 5rem; }
+  .entry-body { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 1rem 2.5rem; }
+  .entry-title { grid-column: 1; grid-row: 1 / span 3; }
+  .entry-body > :not(.entry-title) { grid-column: 2; }
+  .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .stats li { border-right: 1px solid var(--rule); padding: 1.5rem 1rem 1.75rem; border-bottom: 0; }
+  .stats li:first-child { padding-left: 0; }
+  .stats li:last-child { border-right: 0; }
+}
+
+@media (min-width: 1040px) {
+  .sec-head { grid-template-columns: var(--idx) minmax(0, 1fr) minmax(0, 1fr); align-items: end; }
+  .sec-head .label { grid-column: 1; align-self: start; padding-top: .7rem; }
+  .sec-head h2 { grid-column: 2; }
+  .sec-head .sec-sub { grid-column: 3; }
+  .about-body { grid-template-columns: var(--idx) minmax(0, 1fr) minmax(0, 1fr); column-gap: 2rem; }
+  .about-body > * { grid-column: 2 / span 2; }
+  .about-body blockquote { grid-column: 3; grid-row: 1 / span 2; align-self: start; }
+  .about-body p { grid-column: 2; }
+  .entry { column-gap: 2rem; }
+  .entry-body { grid-template-columns: minmax(0, 17rem) minmax(0, 1fr); }
+  .orcid, .pub-list { padding-left: 0; }
+}
+
+@media (max-width: 420px) {
+  :root { --idx: 2.5rem; }
+}
+
+/* ---------- Dark: wet asphalt ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0e0d;
+    --panel: #181816;
+    --ink: #f4f2ec;
+    --muted: #a9a59c;
+    --rule: #4a4843;
+    --rule-strong: #f4f2ec;
+    --accent: #ff4d4d;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:var(--bg); color:var(--txt);
-    background-image:radial-gradient(circle at 50% -10%, var(--bg2), transparent 60%);
-    background-attachment:fixed; font-family:"Inter",-apple-system,sans-serif;
-    line-height:1.6; -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;text-decoration:none;transition:.2s}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+}
 
-  /* Header */
-  header{display:flex;justify-content:space-between;align-items:center;padding:1.75rem 0}
-  .logo{font-weight:700;letter-spacing:-.02em}
-  nav a{color:var(--muted);margin-left:1.5rem;font-size:.9rem}
-  nav a:hover{color:#fff}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
 
-  /* Hero */
-  .hero{padding:4.5rem 0 3rem;max-width:760px}
-  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;
-    background:linear-gradient(to bottom right,#fff,#aab2c5);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .hero p{color:var(--muted);font-size:1.2rem;font-weight:300;margin:1.4rem 0 2rem;max-width:640px}
-  .cta a{display:inline-flex;align-items:center;gap:.4rem;padding:.7rem 1.3rem;border-radius:10px;font-weight:600;font-size:.95rem;margin-right:.75rem}
-  .cta .primary{background:#fff;color:#000}
-  .cta .primary:hover{background:#dbe2ee}
-  .cta .ghost{border:1px solid var(--line);color:#fff}
-  .cta .ghost:hover{border-color:#fff}
-
-  /* Stats */
-  .stats{display:flex;flex-wrap:wrap;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
-  .stat .n{font-size:1.8rem;font-weight:700}
-  .stat .l{color:var(--muted);font-size:.85rem}
-
-  /* Sections */
-  section{padding:3.5rem 0}
-  h2{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
-  .sub{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
-
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.1rem}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;
-    display:flex;flex-direction:column;transition:.25s;position:relative;overflow:hidden}
-  .card:hover{border-color:rgba(56,189,248,.4);transform:translateY(-3px);background:rgba(255,255,255,.05)}
-  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
-  .card h3{font-size:1.15rem;font-weight:600}
-  .badge{font-size:.7rem;font-weight:600;padding:.15rem .55rem;border-radius:100px;white-space:nowrap;border:1px solid var(--line);color:var(--muted)}
-  .badge.live{color:#4ade80;border-color:rgba(74,222,128,.3)}
-  .badge.shipped{color:#38bdf8;border-color:rgba(56,189,248,.3)}
-  .badge.prep{color:#fbbf24;border-color:rgba(251,191,36,.3)}
-  .card p{color:var(--muted);font-size:.92rem;margin:.6rem 0 1rem}
-  .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;margin-bottom:1rem}
-  .tag{font-size:.72rem;color:#c7d0e0;background:rgba(255,255,255,.06);padding:.2rem .55rem;border-radius:6px}
-  .links{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
-  .card .link{font-size:.85rem;color:var(--accent);font-weight:600}
-  .card .link:hover{text-decoration:underline}
-  .links .sep{color:var(--line);font-size:.85rem}
-  .card .store{font-size:.85rem;color:var(--muted);font-weight:600}
-  .card .store:hover{color:#fff}
-
-  .about p{color:var(--muted);font-size:1rem;max-width:760px;margin-bottom:1rem}
-  .about .pull{color:var(--txt);font-size:1.15rem;font-weight:300;line-height:1.5;
-    border-left:2px solid var(--accent);padding-left:1.1rem;margin:1.5rem 0}
-  .pubs p{color:var(--txt);font-size:.95rem;margin-bottom:1rem}
-  .pubs .muted{color:var(--muted)}
-  .pubs a{color:var(--accent);font-weight:600;font-size:.9rem}
-  .pubs a:hover{text-decoration:underline}
-  footer{border-top:1px solid var(--line);padding:2.5rem 0;color:var(--muted);font-size:.85rem;text-align:center}
-  footer a{color:var(--accent)}
-  @media(max-width:560px){.stats{gap:1.5rem}nav{display:none}}
+@media print {
+  :root { --bg: #fff; --ink: #000; --muted: #333; --rule: #999; --rule-strong: #000; }
+  body { background: #fff; color: #000; font-size: 10.5pt; }
+  .site-nav, .skip, .actions { display: none; }
+  .sec, .entry { break-inside: avoid; }
+  .hero-main { padding: 1rem 0; }
+  a[href^="http"]::after, a[href^="mailto:"]::after { content: " (" attr(href) ")"; font-family: var(--mono); font-size: 8pt; word-break: break-all; }
+  .logo::after { content: none; }
+}
 </style>
 </head>
 <body>
-<div class="wrap">
+<a class="skip" href="#main">Skip to content</a>
 
-  <header>
-    <span class="logo">Alen Trgovcevic</span>
-    <nav>
-      <a href="#apps">Apps</a>
-      <a href="#ai">AI</a>
-      <a href="#science">Science</a>
-      <a href="#about">About</a>
-      <a href="https://www.linkedin.com/in/alen-trgovcevic/" target="_blank">LinkedIn ↗</a>
-      <a href="https://github.com/alentrgovcevic" target="_blank">GitHub ↗</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#main"><span>AT /</span>Alen Trgovcevic</a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#apps">Apps</a></li>
+        <li><a href="#lab">Lab systems</a></li>
+        <li><a href="#ai">AI</a></li>
+        <li><a href="#science">Science</a></li>
+        <li><a href="#pubs">Publications</a></li>
+        <li><a href="https://www.linkedin.com/in/alen-trgovcevic/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+        <li><a href="https://github.com/alentrgovcevic" target="_blank" rel="noopener">GitHub ↗</a></li>
+      </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <section class="hero">
-    <h1>I run a lab&rsquo;s operations and build the software it runs on.</h1>
-    <p>Bioinformatics engineer and full-stack builder at Aarhus University. Native iOS and Android apps, production backends, ML/CV pipelines, offline LLM systems and HPC bioinformatics &mdash; designed, built and operated end to end.</p>
-    <div class="cta">
-      <a class="primary" href="https://github.com/alentrgovcevic" target="_blank">View GitHub</a>
-      <a class="ghost" href="https://www.linkedin.com/in/alen-trgovcevic/" target="_blank">LinkedIn</a>
-      <a class="ghost" href="mailto:alen.trgovcevic@gmail.com">Get in touch</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="n">4</div><div class="l">apps in production</div></div>
-      <div class="stat"><div class="n">2,000+</div><div class="l">users on TankBilligt</div></div>
-      <div class="stat"><div class="n">3</div><div class="l">payment rails live</div></div>
-      <div class="stat"><div class="n">2</div><div class="l">peer-reviewed publications</div></div>
-    </div>
-  </section>
+<main id="main">
 
-  <section id="about">
-    <h2>👋 About</h2>
-    <p class="sub">How a lab manager ended up writing production software.</p>
-    <div class="about">
-      <p>I came to software from the bench. I set up Oxford Nanopore sequencing in-house, prepared and multiplexed
-      libraries for Illumina and Nanopore, and built the 16S, RNA-seq and metagenomics workflows that processed what
-      came off them and somewhere in there I became the person who also built the tools. Today I run daily
-      operations for a molecular biology section at Aarhus University, coordinate an international research
-      consortium, and keep building.</p>
-      <p class="pull">The hard part of writing software for a laboratory is rarely the code. It is that the code has
-      to be right about something biological it does not understand.</p>
-      <p>That is the thread through everything below. Most developers can build the system; fewer can read the data
-      running through it. I have spent years on both sides of that line, which is why the lab&rsquo;s ordering
-      and sample database, an offline assistant my colleagues use daily, and a phenotyping pipeline that cleared
-      months of manual measurement all look like the same job to me.</p>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-main">
+        <h1 id="hero-title">I run a lab’s operations, manage its data and build the software it runs on.</h1>
+        <p class="lead">Bioinformatics engineer and full-stack builder at Aarhus University. Native iOS and Android apps, production backends, ML/CV pipelines, offline LLM systems, lab infrastructure and HPC bioinformatics — designed, built and operated end to end.</p>
+        <ul class="actions">
+          <li><a class="btn btn--primary" href="https://github.com/alentrgovcevic" target="_blank" rel="noopener">View GitHub →</a></li>
+          <li><a class="btn" href="https://www.linkedin.com/in/alen-trgovcevic/" target="_blank" rel="noopener">LinkedIn →</a></li>
+          <li><a class="btn" href="mailto:alen.trgovcevic@gmail.com">Get in touch →</a></li>
+        </ul>
+      </div>
+      <ul class="stats">
+        <li><strong>4</strong><span class="label">apps in production</span></li>
+        <li><strong>2,000+</strong><span class="label">users on TankBilligt</span></li>
+        <li><strong>3</strong><span class="label">payment rails live</span></li>
+        <li><strong>2</strong><span class="label">peer-reviewed publications</span></li>
+      </ul>
     </div>
   </section>
 
-  <section id="apps">
-    <h2>📱 Products & mobile apps</h2>
-    <p class="sub">Four in production. TankBilligt and Bliv Klar on both stores, Lynkort and LabCompanion on iOS.</p>
-    <div class="grid">
-      <article class="card">
-        <div class="top"><h3>TankBilligt</h3><span class="badge live">Production</span></div>
-        <p>Denmark's cheapest-fuel app — 2,000+ users. iOS + Android + a Node/TS backend with server-side IAP validation and cron price-scraping.</p>
-        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Compose</span><span class="tag">Express/TS</span><span class="tag">PostgreSQL</span></div>
-        <div class="links">
-          <a class="link" href="https://github.com/alentrgovcevic/TankBilligt-overview" target="_blank">View overview →</a>
-          <span class="sep">·</span>
-          <a class="store" href="https://apps.apple.com/dk/app/tankbilligt-benzinpriser/id6757086573" target="_blank">App Store ↗</a>
-          <span class="sep">·</span>
-          <a class="store" href="https://play.google.com/store/apps/details?id=dk.tankbilligt.android" target="_blank">Google Play ↗</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Bliv Klar</h3><span class="badge live">Production</span></div>
-        <p>Danish citizenship exam prep on iOS, Android <em>and</em> web &mdash; the web flow takes real money through Stripe, with the receipt, right-of-withdrawal and terms pages Danish consumer law requires.</p>
-        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Compose</span><span class="tag">Play Billing</span><span class="tag">Stripe/PHP</span></div>
-        <div class="links">
-          <a class="link" href="https://github.com/alentrgovcevic/BlivKlar" target="_blank">View overview →</a>
-          <span class="sep">·</span>
-          <a class="store" href="https://apps.apple.com/dk/app/bliv-klar-indf%C3%B8dsretspr%C3%B8ven/id6758513536" target="_blank">App Store ↗</a>
-          <span class="sep">·</span>
-          <a class="store" href="https://play.google.com/store/apps/details?id=dk.atproductions.blivklar" target="_blank">Google Play ↗</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Lynkort</h3><span class="badge shipped">App Store</span></div>
-        <p>Danish flashcards with a Leitner spaced-repetition engine, lock-screen widget, and zero external dependencies. Live on iOS; the Android build is unreleased.</p>
-        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">SwiftData</span><span class="tag">CloudKit</span></div>
-        <div class="links">
-          <a class="link" href="https://github.com/alentrgovcevic/Lynkort" target="_blank">View overview →</a>
-          <span class="sep">·</span>
-          <a class="store" href="https://apps.apple.com/dk/app/lynkort-flashcards/id6760855261" target="_blank">App Store ↗</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="top"><h3>LabCompanion</h3><span class="badge shipped">App Store</span></div>
-        <p>Lab calculators and protocol timers with Lock Screen Live Activities and iCloud sync, for bench scientists. Live on iOS; Android in development.</p>
-        <div class="tags"><span class="tag">SwiftUI</span><span class="tag">ActivityKit</span><span class="tag">CloudKit</span></div>
-        <div class="links">
-          <a class="link" href="https://github.com/alentrgovcevic/LabCompanion-overview" target="_blank">View overview →</a>
-          <span class="sep">·</span>
-          <a class="store" href="https://apps.apple.com/dk/app/labcompanion-lab-calculator/id6770509131" target="_blank">App Store ↗</a>
-        </div>
-      </article>
+  <section class="sec" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">A</p>
+        <h2 id="about-title">About</h2>
+        <p class="sec-sub">How a lab manager ended up writing production software.</p>
+      </div>
+      <div class="about-body">
+        <p>I came to software from the bench. I set up Oxford Nanopore sequencing in-house, prepared and multiplexed libraries for Illumina and Nanopore, and built the 16S, RNA-seq and metagenomics workflows that processed what came off them — and somewhere in there I became the person who also built the tools. Today I run daily operations for a molecular biology section at Aarhus University, coordinate an international research consortium, and keep building.</p>
+        <blockquote><p>The hard part of writing software for a laboratory is rarely the code. It is that the code has to be right about something biological it does not understand.</p></blockquote>
+        <p>That is the thread through everything below. Most developers can build the system; fewer can read the data running through it. I have spent years on both sides of that line, which is why the lab’s ordering and sample database, an offline assistant my colleagues use daily, and a phenotyping pipeline that cleared months of manual measurement all look like the same job to me.</p>
+      </div>
     </div>
   </section>
 
-  <section id="ai">
-    <h2>🤖 AI & automation</h2>
-    <p class="sub">On-prem LLMs, local-first pipelines, autonomous agents &mdash; and the tooling around them.</p>
-    <div class="grid">
-      <article class="card">
-        <div class="top"><h3>labRAG</h3><span class="badge live">Production</span></div>
-        <p>A fully offline RAG assistant over lab protocols and safety documents &mdash; no cloud LLM ever sees the data. It cites a source on every answer, and says a protocol is not in the indexed set rather than inventing one.</p>
-        <div class="tags"><span class="tag">Ollama</span><span class="tag">Python</span><span class="tag">local embeddings</span></div>
-        <div class="links">
-          <a class="link" href="https://github.com/alentrgovcevic/labRAG-overview" target="_blank">View overview →</a>
-          <span class="sep">·</span>
-          <a class="store" href="https://github.com/alentrgovcevic/labrag-portable" target="_blank">Read the code ↗</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Photo Pipeline</h3><span class="badge live">Production</span></div>
-        <p>A photographer's cull-to-stock automation: RAW culling, a three-axis local-AI scorer, and multi-agency submission.</p>
-        <div class="tags"><span class="tag">OpenCV</span><span class="tag">Ollama</span><span class="tag">NIMA</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/PhotoPipeline" target="_blank">View overview →</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>cmdlog</h3><span class="badge live">Open source</span></div>
-        <p>Tooling for the coding agents themselves. It reads Claude Code&rsquo;s own session transcripts and builds one local page of every command the agent ran &mdash; grouped by day, mapped to the repository it ran in, with the output it printed and a search that covers that output. No hook, no daemon, no dependencies, and it never writes to the agent&rsquo;s own files.</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">SQLite FTS5</span><span class="tag">stdlib-only</span><span class="tag">MIT</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/claude-code-cmdlog" target="_blank">Read the code ↗</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Marketing Agent</h3><span class="badge">Concept</span></div>
-        <p>Autonomous social-content pipeline designed to give retired hardware new life — data → generation → media → posting.</p>
-        <div class="tags"><span class="tag">Docker</span><span class="tag">Gemini</span><span class="tag">Playwright</span><span class="tag">moviepy</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/MarketingAgent" target="_blank">View overview →</a>
-      </article>
+  <section class="sec" id="apps" aria-labelledby="apps-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">B</p>
+        <h2 id="apps-title">Products &amp; mobile apps</h2>
+        <p class="sec-sub">Four in production. TankBilligt and Bliv Klar on both stores, Lynkort and LabCompanion on iOS.</p>
+      </div>
+      <ol class="ledger">
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">01</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>TankBilligt</h3><span class="label">Production</span></div>
+            <p>Denmark's cheapest-fuel app — 2,000+ users. iOS + Android + a Node/TS backend with server-side IAP validation and cron price-scraping.</p>
+            <ul class="tags" aria-label="Technologies"><li>SwiftUI</li><li>Compose</li><li>Express/TS</li><li>PostgreSQL</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/TankBilligt-overview" target="_blank" rel="noopener">View overview →</a></li>
+              <li><a href="https://apps.apple.com/dk/app/tankbilligt-benzinpriser/id6757086573" target="_blank" rel="noopener">App Store ↗</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=dk.tankbilligt.android" target="_blank" rel="noopener">Google Play ↗</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">02</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>Bliv Klar</h3><span class="label">Production</span></div>
+            <p>Danish citizenship exam prep on iOS, Android and web — the web flow takes real money through Stripe, with the receipt, right-of-withdrawal and terms pages Danish consumer law requires.</p>
+            <ul class="tags" aria-label="Technologies"><li>SwiftUI</li><li>Compose</li><li>Play Billing</li><li>Stripe/PHP</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/BlivKlar" target="_blank" rel="noopener">View overview →</a></li>
+              <li><a href="https://apps.apple.com/dk/app/bliv-klar-indf%C3%B8dsretspr%C3%B8ven/id6758513536" target="_blank" rel="noopener">App Store ↗</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=dk.atproductions.blivklar" target="_blank" rel="noopener">Google Play ↗</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">03</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>Lynkort</h3><span class="label">App Store</span></div>
+            <p>Danish flashcards with a Leitner spaced-repetition engine, lock-screen widget, and zero external dependencies. Live on iOS; the Android build is unreleased.</p>
+            <ul class="tags" aria-label="Technologies"><li>SwiftUI</li><li>SwiftData</li><li>CloudKit</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/Lynkort" target="_blank" rel="noopener">View overview →</a></li>
+              <li><a href="https://apps.apple.com/dk/app/lynkort-flashcards/id6760855261" target="_blank" rel="noopener">App Store ↗</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">04</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>LabCompanion</h3><span class="label">App Store</span></div>
+            <p>Lab calculators and protocol timers with Lock Screen Live Activities and iCloud sync, for bench scientists. Live on iOS; Android in development.</p>
+            <ul class="tags" aria-label="Technologies"><li>SwiftUI</li><li>ActivityKit</li><li>CloudKit</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/LabCompanion-overview" target="_blank" rel="noopener">View overview →</a></li>
+              <li><a href="https://apps.apple.com/dk/app/labcompanion-lab-calculator/id6770509131" target="_blank" rel="noopener">App Store ↗</a></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <section id="science">
-    <h2>🧬 Bioinformatics & scientific computing</h2>
-    <p class="sub">HPC pipelines and rigorous, reproducible analysis.</p>
-    <div class="grid">
-      <article class="card">
-        <div class="top"><h3>genome-decoded</h3><span class="badge live">Open source</span></div>
-        <p>Turns a consumer DNA download (MyHeritage, FTDNA, 23andMe, AncestryDNA) into a readable, honest report &mdash; ancestry, drug response, HLA type, polygenic scores and ClinVar variants &mdash; without the genome ever leaving your machine. On the NA12878 reference sample, its HLA calls match the published typing at 10 of 10 alleles and its drug-gene calls exactly match the CDC GeT-RM consensus for 10 of 12 genes, with the other two agreeing in part.</p>
-        <div class="tags"><span class="tag">Snakemake</span><span class="tag">Beagle</span><span class="tag">PharmCAT</span><span class="tag">SLURM</span><span class="tag">MIT</span></div>
-        <div class="links">
-          <a class="link" href="https://alentrgovcevic.github.io/genome-decoded/" target="_blank">See the demo report →</a>
-          <span class="sep">·</span>
-          <a class="store" href="https://github.com/alentrgovcevic/genome-decoded" target="_blank">Read the code ↗</a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="top"><h3>PhenoVision</h3><span class="badge live">Production</span></div>
-        <p>A CV pipeline turning messy lab photos into publication-grade plant phenotype data with YOLOv8/11 + geometry.</p>
-        <div class="tags"><span class="tag">YOLOv8/11</span><span class="tag">OpenCV</span><span class="tag">skan</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/PhenoVision-overview" target="_blank">View overview →</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>WA Pipelines</h3><span class="badge live">Production</span></div>
-        <p>HPC shotgun metagenomics of the wheat rhizoplane microbiome — gwf/SLURM, dual host-reference removal, Kraken2 + HUMAnN3.</p>
-        <div class="tags"><span class="tag">gwf</span><span class="tag">SLURM</span><span class="tag">Kraken2</span><span class="tag">R</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/WA_pipelines-overview" target="_blank">View overview →</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Barley Root RNA-seq</h3><span class="badge live">Production</span></div>
-        <p>RNA-seq differential expression testing whether transgenes alter the barley root response to AMF — STAR + DESeq2 interaction model.</p>
-        <div class="tags"><span class="tag">STAR</span><span class="tag">DESeq2</span><span class="tag">R</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/barley_root_rnaseq" target="_blank">View overview →</a>
-      </article>
+  <section class="sec" id="lab" aria-labelledby="lab-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">C</p>
+        <h2 id="lab-title">Lab systems &amp; infrastructure</h2>
+        <p class="sec-sub">The software a molecular biology section runs on, built and operated in-house.</p>
+      </div>
+      <ol class="ledger">
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">05</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>Lab server</h3><span class="label">In service</span></div>
+            <p>The section’s shared web server: a map bank of 5,900+ plasmids (11,700+ map files) with bench tools — clone verification against Sanger reads, primer design, Golden Gate assembly with overhang diagnosis, Gibson assembly, BLAST — and a genome browser for any genome. Run as a service, not a script: auto-deploy, and load tests that found the bottleneck; a cache then took browsing at 16 simultaneous users from 4.8 to 109 requests a second. For its first genome, 49,521 of 49,532 coding sequences match an independent reference annotation.</p>
+            <ul class="tags" aria-label="Technologies"><li>FastAPI</li><li>SQLite</li><li>Docker</li><li>Caddy</li><li>Biopython</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/lab_server_template" target="_blank" rel="noopener">Read the code (MIT template) ↗</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">06</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>Sequencing databases</h3><span class="label">In progress</span></div>
+            <p>Scattered RNA-seq studies consolidated for the section. Barley: 535 samples across 19 studies, with a harmonised count matrix for the first 8 studies, differential-expression contrasts and a browsable results page. Lotus japonicus: 535 samples aligned and counted against two reference genomes, the shared matrix in progress. Plus a bacterial whole-genome pipeline built for about 96 isolates and validated before it is trusted: on the first six it matches the earlier CheckM completeness and contamination values exactly, and batching cut eggNOG annotation from 80 to 6.6 core-hours.</p>
+            <ul class="tags" aria-label="Technologies"><li>gwf</li><li>SLURM</li><li>STAR</li><li>DESeq2</li><li>CheckM</li></ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">07</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>BREEDOME LIMS</h3><span class="label">In build</span></div>
+            <p>A laboratory information system for a 4-node genome-editing facility. Ordering, oligos and personnel/permissions are built; consolidating four standalone databases into one is roughly half done.</p>
+            <ul class="tags" aria-label="Technologies"><li>FileMaker 2025</li><li>RBAC</li><li>OAuth/OIDC</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/BREEDOME_LIMS" target="_blank" rel="noopener">View overview →</a></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <section id="more">
-    <h2>🗄️ Systems · 🎮 Game dev · 🛡️ Security</h2>
-    <p class="sub">Breadth beyond the day job.</p>
-    <div class="grid">
-      <article class="card">
-        <div class="top"><h3>BREEDOME LIMS</h3><span class="badge prep">In build</span></div>
-        <p>A laboratory information system for a 4-node genome-editing facility. Ordering, oligos and personnel/permissions are built; consolidating four standalone databases into one is roughly half done.</p>
-        <div class="tags"><span class="tag">FileMaker 2025</span><span class="tag">RBAC</span><span class="tag">OAuth/OIDC</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/BREEDOME_LIMS" target="_blank">View overview →</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Tracewire</h3><span class="badge">Prototype</span></div>
-        <p>A territory-carving auto-battler with an engine-independent, xUnit-tested pure-C# simulation core consumed by Unity.</p>
-        <div class="tags"><span class="tag">Unity 6</span><span class="tag">C#</span><span class="tag">xUnit</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/Tracewire-overview" target="_blank">View overview →</a>
-      </article>
-      <article class="card">
-        <div class="top"><h3>Cybersecurity Toolkit</h3><span class="badge">Toolkit</span></div>
-        <p>Password entropy analyzer with privacy-preserving HIBP k-anonymity breach checks, plus a class-based port scanner.</p>
-        <div class="tags"><span class="tag">Python</span><span class="tag">SHA-256</span><span class="tag">HIBP</span></div>
-        <a class="link" href="https://github.com/alentrgovcevic/CybersecurityToolkit" target="_blank">View overview →</a>
-      </article>
+  <section class="sec" id="ai" aria-labelledby="ai-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">D</p>
+        <h2 id="ai-title">AI &amp; automation</h2>
+        <p class="sec-sub">On-prem LLMs, local-first pipelines, autonomous agents — and the tooling around them.</p>
+      </div>
+      <ol class="ledger">
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">08</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>labRAG</h3><span class="label">Production</span></div>
+            <p>A fully offline RAG assistant over lab protocols and safety documents — no cloud LLM ever sees the data. It cites a source on every answer, and says a protocol is not in the indexed set rather than inventing one.</p>
+            <ul class="tags" aria-label="Technologies"><li>Ollama</li><li>Python</li><li>local embeddings</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/labRAG-overview" target="_blank" rel="noopener">View overview →</a></li>
+              <li><a href="https://github.com/alentrgovcevic/labrag-portable" target="_blank" rel="noopener">Read the code ↗</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">09</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>Photo Pipeline</h3><span class="label">Production</span></div>
+            <p>A photographer's cull-to-stock automation: RAW culling, a three-axis local-AI scorer, and multi-agency submission.</p>
+            <ul class="tags" aria-label="Technologies"><li>OpenCV</li><li>Ollama</li><li>NIMA</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/PhotoPipeline" target="_blank" rel="noopener">View overview →</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">10</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>cmdlog</h3><span class="label">Open source</span></div>
+            <p>Tooling for the coding agents themselves. It reads Claude Code’s own session transcripts and builds one local page of every command the agent ran — grouped by day, mapped to the repository it ran in, with the output it printed and a search that covers that output. No hook, no daemon, no dependencies, and it never writes to the agent’s own files.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>SQLite FTS5</li><li>stdlib-only</li><li>MIT</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/claude-code-cmdlog" target="_blank" rel="noopener">Read the code ↗</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">11</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>Marketing Agent</h3><span class="label">Concept</span></div>
+            <p>Autonomous social-content pipeline designed to give retired hardware new life — data → generation → media → posting.</p>
+            <ul class="tags" aria-label="Technologies"><li>Docker</li><li>Gemini</li><li>Playwright</li><li>moviepy</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/MarketingAgent" target="_blank" rel="noopener">View overview →</a></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <section id="pubs">
-    <h2>📄 Publications</h2>
-    <p class="sub">Peer-reviewed, from the research side of the same work.</p>
-    <div class="pubs">
-      <p><strong>Signatures of Antagonistic Pleiotropy in a Bacterial Flagellin Epitope</strong><br>
-      <span class="muted">Cell Host &amp; Microbe, 2021 ·</span>
-      <a class="link" href="https://doi.org/10.1016/j.chom.2021.02.006" target="_blank">10.1016/j.chom.2021.02.006 →</a></p>
-      <p><strong>A Conserved Juxtamembrane Motif in Plant NFR5 Receptors</strong><br>
-      <span class="muted">PNAS, 2021 ·</span>
-      <a class="link" href="https://doi.org/10.1073/pnas.2101526118" target="_blank">10.1073/pnas.2101526118 →</a></p>
-      <p style="margin-top:1.25rem"><a class="link" href="https://orcid.org/0000-0001-7709-6803" target="_blank">ORCID 0000-0001-7709-6803 →</a></p>
+  <section class="sec" id="science" aria-labelledby="science-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">E</p>
+        <h2 id="science-title">Bioinformatics &amp; scientific computing</h2>
+        <p class="sec-sub">HPC pipelines and rigorous, reproducible analysis.</p>
+      </div>
+      <ol class="ledger">
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">12</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>genome-decoded</h3><span class="label">Open source</span></div>
+            <p>Turns a consumer DNA download (MyHeritage, FTDNA, 23andMe, AncestryDNA) into a readable, honest report — ancestry, drug response, HLA type, polygenic scores and ClinVar variants — without the genome ever leaving your machine. On the NA12878 reference sample, its HLA calls match the published typing at 10 of 10 alleles and its drug-gene calls exactly match the CDC GeT-RM consensus for 10 of 12 genes, with the other two agreeing in part.</p>
+            <ul class="tags" aria-label="Technologies"><li>Snakemake</li><li>Beagle</li><li>PharmCAT</li><li>SLURM</li><li>MIT</li></ul>
+            <ul class="links">
+              <li><a href="https://alentrgovcevic.github.io/genome-decoded/" target="_blank" rel="noopener">See the demo report →</a></li>
+              <li><a href="https://github.com/alentrgovcevic/genome-decoded" target="_blank" rel="noopener">Read the code ↗</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">13</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>PhenoVision</h3><span class="label">Production</span></div>
+            <p>A CV pipeline turning messy lab photos into publication-grade plant phenotype data with YOLOv8/11 + geometry.</p>
+            <ul class="tags" aria-label="Technologies"><li>YOLOv8/11</li><li>OpenCV</li><li>skan</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/PhenoVision-overview" target="_blank" rel="noopener">View overview →</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">14</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>WA Pipelines</h3><span class="label">Production</span></div>
+            <p>HPC shotgun metagenomics of the wheat rhizoplane microbiome — gwf/SLURM, dual host-reference removal, Kraken2 + HUMAnN3.</p>
+            <ul class="tags" aria-label="Technologies"><li>gwf</li><li>SLURM</li><li>Kraken2</li><li>R</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/WA_pipelines-overview" target="_blank" rel="noopener">View overview →</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">15</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>Barley Root RNA-seq</h3><span class="label">Production</span></div>
+            <p>RNA-seq differential expression testing whether transgenes alter the barley root response to AMF — STAR + DESeq2 interaction model.</p>
+            <ul class="tags" aria-label="Technologies"><li>STAR</li><li>DESeq2</li><li>R</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/barley_root_rnaseq" target="_blank" rel="noopener">View overview →</a></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
-  <footer>
-    Native mobile · production backends · payments and consumer-law compliance · ML/CV · offline LLM/RAG · HPC bioinformatics · laboratory data architecture.<br>
-    <a href="https://www.linkedin.com/in/alen-trgovcevic/">LinkedIn</a> ·
-    <a href="https://github.com/alentrgovcevic">github.com/alentrgovcevic</a> ·
-    <a href="https://orcid.org/0000-0001-7709-6803">ORCID 0000-0001-7709-6803</a> ·
-    <a href="mailto:alen.trgovcevic@gmail.com">alen.trgovcevic@gmail.com</a><br>
-    <span style="opacity:.6">AT Productions (CVR 46159640) · © 2026 Alen Trgovcevic</span>
-  </footer>
+  <section class="sec" id="research" aria-labelledby="research-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">F</p>
+        <h2 id="research-title">Independent research</h2>
+        <p class="sec-sub">Done on my own time. The method is the point; the subject is incidental.</p>
+      </div>
+      <ol class="ledger">
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">16</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>dmi-capture</h3><span class="label">Ongoing</span></div>
+            <p>A storm-surge forecast archive that nobody else keeps. The Danish Meteorological Institute holds only a day or two of ocean forecasts and publishes no history, so a day not captured is lost for good. A capture-and-evaluation pipeline on an always-on box, with questions about the data put to DMI’s scientists and their answers kept on record.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>scheduling</li><li>forecast verification</li></ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">17</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>aurora-watch</h3><span class="label">Research</span></div>
+            <p>An aurora and cloud image classifier study with an external all-sky camera network. Agreement is measured honestly: in a first test of 46 frames, two raters agreed on 97.8 % yet κ was only 0.657, because chance agreement was already 93.7 %. Solar geometry computed from scratch, matching the camera’s own overlay to 0.007° in elevation.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>computer vision</li><li>inter-rater statistics</li></ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-</div>
+  <section class="sec" id="more" aria-labelledby="more-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">G</p>
+        <h2 id="more-title">Systems &amp; security</h2>
+        <p class="sec-sub">Breadth beyond the day job.</p>
+      </div>
+      <ol class="ledger">
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">18</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>Cybersecurity Toolkit</h3><span class="label">Toolkit</span></div>
+            <p>Password entropy analyzer with privacy-preserving HIBP k-anonymity breach checks, plus a class-based port scanner.</p>
+            <ul class="tags" aria-label="Technologies"><li>Python</li><li>SHA-256</li><li>HIBP</li></ul>
+            <ul class="links">
+              <li><a href="https://github.com/alentrgovcevic/CybersecurityToolkit" target="_blank" rel="noopener">View overview →</a></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="pubs" aria-labelledby="pubs-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">H</p>
+        <h2 id="pubs-title">Publications</h2>
+        <p class="sec-sub">Peer-reviewed, from the research side of the same work.</p>
+      </div>
+      <ol class="ledger pub-list">
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">P1</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>Signatures of Antagonistic Pleiotropy in a Bacterial Flagellin Epitope</h3></div>
+            <p class="pub-meta">Cell Host &amp; Microbe, 2021</p>
+            <ul class="links"><li><a href="https://doi.org/10.1016/j.chom.2021.02.006" target="_blank" rel="noopener">10.1016/j.chom.2021.02.006 →</a></li></ul>
+          </div>
+        </li>
+        <li class="entry">
+          <span class="entry-idx" aria-hidden="true">P2</span>
+          <div class="entry-body">
+            <div class="entry-title"><h3>A Conserved Juxtamembrane Motif in Plant NFR5 Receptors</h3></div>
+            <p class="pub-meta">PNAS, 2021</p>
+            <ul class="links"><li><a href="https://doi.org/10.1073/pnas.2101526118" target="_blank" rel="noopener">10.1073/pnas.2101526118 →</a></li></ul>
+          </div>
+        </li>
+      </ol>
+      <p class="orcid"><span class="label">ORCID</span>&nbsp; <a href="https://orcid.org/0000-0001-7709-6803" target="_blank" rel="noopener">0000-0001-7709-6803</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Native mobile · production backends · payments and consumer-law compliance · ML/CV · offline LLM/RAG · lab infrastructure · HPC bioinformatics · laboratory data architecture.</p>
+    <ul class="foot-links">
+      <li><a href="https://www.linkedin.com/in/alen-trgovcevic/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/alentrgovcevic" target="_blank" rel="noopener">github.com/alentrgovcevic</a></li>
+      <li><a href="https://orcid.org/0000-0001-7709-6803" target="_blank" rel="noopener">ORCID 0000-0001-7709-6803</a></li>
+      <li><a href="mailto:alen.trgovcevic@gmail.com">alen.trgovcevic@gmail.com</a></li>
+    </ul>
+    <p class="label">AT Productions (CVR 46159640) · © 2026 Alen Trgovcevic</p>
+  </div>
+</footer>
 </body>
 </html>
